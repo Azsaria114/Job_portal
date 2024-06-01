@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+import Loginpage from './pages/Loginpage';
+import Userpage from './pages/Userpage';
+
+import Jobpost from './pages/Jobpost';
+import Jobseek from './pages/Jobseek';
+import UserDash from './pages/UserDash';
+import WelcomePage from './pages/WelcomePage';
+
 
 function App() {
-  return (
+ return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<WelcomePage/>} />
+          <Route path="/userpage" element={<Userpage/>} />
+          <Route path="/loginform" element={<Loginpage />} />    
+          <Route path="/jobform" element={<Jobpost />} />
+          <Route path="/jobdetails" element={<Jobseek/>} />
+          <Route path="/userprofile" element={<UserDash/>} />
+          </Routes>
+      </Router>
+    
+
+
+     
     </div>
   );
 }
